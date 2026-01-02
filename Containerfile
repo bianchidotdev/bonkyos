@@ -1,4 +1,5 @@
 ARG BASE_IMAGE="ucore"
+ARG IMAGE="server"
 ARG TAG_VERSION="stable"
 
 # Allow build scripts to be referenced without being copied into the final image

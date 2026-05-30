@@ -101,9 +101,9 @@ jobs:
           image: ${{ env.IMAGE_NAME }}
           tags: ${{ steps.metadata.outputs.tags }}
           # map image_flavor to build args - probably also just migrate to just build
-          # build-args: |
-          #   BASE_IMAGE=ucore
-          #   TAG_VERSION=stable
+          build-args: |
+            BASE_IMAGE=${{ inputs.image_flavor }}
+            TAG_VERSION=stable
           labels: ${{ steps.metadata.outputs.labels }}
           oci: false
 

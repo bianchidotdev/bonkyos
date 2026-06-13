@@ -5,6 +5,8 @@ set ${SET_X:+-x} -eou pipefail
 dnf5 config-manager addrepo --from-repofile=https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
 dnf5 install -y nomad
 
+dnf5 install -y incus
+
 #### Make `ucore-brew` package additions
 
 # Add Homebrew to `ucore`

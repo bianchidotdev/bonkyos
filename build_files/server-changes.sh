@@ -6,6 +6,7 @@ dnf5 config-manager addrepo --from-repofile=https://rpm.releases.hashicorp.com/f
 dnf5 install -y nomad
 
 dnf5 install -y incus
+systemctl enable incus
 
 #### Make `ucore-brew` package additions
 

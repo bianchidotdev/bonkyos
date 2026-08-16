@@ -2,11 +2,18 @@
 
 set ${SET_X:+-x} -eou pipefail
 
-dnf5 config-manager addrepo --from-repofile=https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
-dnf5 install -y nomad
 
-dnf5 install -y incus
-systemctl enable incus
+### Test out zrs
+# populate yum repo
+tee /etc/yum.repos.d/zrs-edge.repo << 'EOF'
+[zrs-edge]
+name=ZRS edge
+baseurl=https://us-central1-yum.pkg.dev/projects/zrs-app/zrs-rpm-edge
+enabled=1
+gpgcheck=0
+EOF
+
+dnf5 install -y zrs
 
 #### Make `ucore-brew` package additions
 

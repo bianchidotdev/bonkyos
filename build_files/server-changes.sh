@@ -3,17 +3,16 @@
 set ${SET_X:+-x} -eou pipefail
 
 
-### Test out zrs
-# populate yum repo
-tee /etc/yum.repos.d/zrs-edge.repo << 'EOF'
-[zrs-edge]
-name=ZRS edge
-baseurl=https://us-central1-yum.pkg.dev/projects/zrs-app/zrs-rpm-edge
-enabled=1
-gpgcheck=0
-EOF
+### Test out zrs - NOT WORKING because there's a strict requirement on docker-ce
+# tee /etc/yum.repos.d/zrs-edge.repo << 'EOF'
+# [zrs-edge]
+# name=ZRS edge
+# baseurl=https://us-central1-yum.pkg.dev/projects/zrs-app/zrs-rpm-edge
+# enabled=1
+# gpgcheck=0
+# EOF
 
-dnf5 install -y zrs
+# dnf5 install -y zrs
 
 #### Make `ucore-brew` package additions
 

@@ -14,6 +14,9 @@ EOF
 
 dnf5 install -y zrs
 
+# add vector for log and metric shipping
+dnf5 install -y vector
+
 #### Make `ucore-brew` package additions
 
 # Add Homebrew to `ucore`

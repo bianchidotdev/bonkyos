@@ -15,6 +15,19 @@ EOF
 dnf5 install -y zrs
 
 # add vector for log and metric shipping
+tee /etc/yum.repos.d/vector.repo << 'EOF'
+[vector]
+name = Vector
+baseurl = https://yum.vector.dev/stable/vector-0/$basearch/
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+priority=1
+gpgkey=https://keys.datadoghq.com/DATADOG_RPM_KEY_CURRENT.public
+       https://keys.datadoghq.com/DATADOG_RPM_KEY_B01082D3.public
+       https://keys.datadoghq.com/DATADOG_RPM_KEY_FD4BF915.public
+EOF
+
 dnf5 install -y vector
 
 #### Make `ucore-brew` package additions
